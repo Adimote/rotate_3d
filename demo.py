@@ -28,12 +28,7 @@ import os
 # Input image path
 img_path = sys.argv[1]
 
-# Rotation range
-rot_range = 360 if len(sys.argv) <= 2 else int(sys.argv[2])
-
-# Ideal image shape (w, h)
-img_shape = None if len(sys.argv) <= 4 else (int(sys.argv[3]), int(sys.argv[4]))
-
+img_shape = (500,500)
 # Instantiate the class
 it = ImageTransformer(img_path, img_shape)
 
@@ -41,21 +36,13 @@ it = ImageTransformer(img_path, img_shape)
 if not os.path.isdir('output'):
     os.mkdir('output')
 
-# Iterate through rotation range
-for ang in xrange(0, rot_range):
 
-    # NOTE: Here we can change which angle, axis, shift
-    
-    """ Example of rotating an image along y-axis from 0 to 360 degree 
-        with a 5 pixel shift in +X direction """
-    rotated_img = it.rotate_along_axis(phi = ang, dx = 5)
+# NOTE: Here we can change which angle, axis, shift
 
-    """ Example of rotating an image along yz-axis from 0 to 360 degree """
-    #rotated_img = it.rotate_along_axis(phi = ang, gamma = ang)
+rot_val = 0
+for rx,ry,rz in [(0,0,-45),(0,0,0),(0,0,45),(45,0,0),(-45,0,0),(0,45,0),(0,-45,0)]:
 
-    """ Example of rotating an image along z-axis(Normal 2D) from 0 to 360 degree """
-    #rotated_img = it.rotate_along_axis(gamma = ang)
+    rotated_img = it.rotate_along_axis(rx,ry,rz, dz = 600)
 
-    save_image('output/{}.jpg'.format(str(ang).zfill(3)), rotated_img)
-
+    save_image('output/{}x{}y{}z.jpg'.format(rx,ry,rz),rotated_img)
 
