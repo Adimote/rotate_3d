@@ -19,20 +19,7 @@ Rotate along XZ axis
 Change main function with ideal [arguments](#parameters)
 
 ```bash
-python demo.py [path of the image] [degree to rotate] ([ideal width] [ideal height])
-```
-e.g.,
-Example of rotating an image along yz-axis from 0 to 360 degree with a 5 pixel shift in +X direction
-```python
-- rotated_img = it.rotate_along_axis(phi = ang, dx = 5)
-+ #rotated_img = it.rotate_along_axis(phi = ang, dx = 5)
-
-- #rotated_img = it.rotate_along_axis(phi = ang, gamma = ang)
-+ rotated_img = it.rotate_along_axis(phi = ang, gamma = ang)
-```
-Then
-```bash
-python demo.py images/000001.jpg 360
+python main.py [path of the image]
 ```
 
 ## Parameters:
@@ -51,6 +38,8 @@ it.rotate_along_axis(theta=0, phi=0, gamma=0, dx=0, dy=0, dz=0):
 
 
 ## Acknowledgments
+
+Code forked from: https://github.com/eborboihuc/rotate_3d
 
 Code ported and modified from [jepson](http://jepsonsblog.blogspot.tw/2012/11/rotation-in-3d-using-opencvs.html) and [stackoverflow](http://stackoverflow.com/questions/17087446/how-to-calculate-perspective-transform-for-opencv-from-rotation-angles). Thanks for their excellent work!
 
