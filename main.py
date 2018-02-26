@@ -44,5 +44,5 @@ for rx,ry,rz in [(0,0,-45),(0,0,0),(0,0,45),(45,0,0),(-45,0,0),(0,45,0),(0,-45,0
 
     rotated_img = it.rotate_along_axis(rx,ry,rz, dz = 600)
 
-    save_image('output/{}x{}y{}z.jpg'.format(rx,ry,rz),rotated_img)
+    save_image('output/{}x{}y{}z.png'.format(rx,ry,rz),rotated_img)
 
